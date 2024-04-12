@@ -31,7 +31,9 @@ public class Main {
         System.out.println("Spesa dopo l'eliminazione del prodotto con codice " + codiceProdottoDaEliminare + ":");
         spesa.stampaSpesa();
 
-        spesa.salvaSpesaSuFile("spesa-spesa.txt");
+        spesa.salvaSpesaSuFile("spesa.txt");
         System.out.println("Spesa salvata su file 'spesa.txt'");
+        spesa.stampaSpesa();
+
     }
 }

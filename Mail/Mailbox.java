@@ -1,20 +1,34 @@
 package Mail;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Mailbox {
-    String mittente, oggetto, testo;
-    int data, ora;
+    private List<Email> emails;
 
-    public Mailbox(String mittente,String oggetto,String testo, int ora, int data){
-        this.mittente =  mittente;
-        this.oggetto =  oggetto;
-        this.testo =  testo;
-        this.data =  data;
-        this.ora =  ora;
+    public Mailbox() {
+        this.emails = new ArrayList<>();
     }
 
-    ArrayList<String> mail = new ArrayList<String>();
+    public void addEmail(Email email) {
+        emails.add(0, email); 
+    }
 
+    public void removeEmail(int position) {
+        if (position >= 0 && position < emails.size()) {
+            emails.remove(position);
+        } else {
+            throw new IllegalArgumentException("Posizione non valida");
+        }
+    }
 
+    public List<Email> searchEmailsBySubject(String subject) {
+        List<Email> matchingEmails = new ArrayList<>();
+        for (Email email : emails) {
+            if (email.getSubject().contains(subject)) {
+                matchingEmails.add(email);
+            }
+        }
+        return matchingEmails;
+    }
 }
