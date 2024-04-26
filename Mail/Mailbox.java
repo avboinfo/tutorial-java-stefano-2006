@@ -31,4 +31,8 @@ public class Mailbox {
         }
         return matchingEmails;
     }
+
+    public List<Email> getEmails() {
+        return new ArrayList<>(emails);
+    }
 }
